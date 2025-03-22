@@ -1,0 +1,1 @@
+print('My mom once said, "I love you!"')
