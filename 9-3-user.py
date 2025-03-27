@@ -26,6 +26,3 @@ hebe.describe_user()
 hebe.greet_user()
 allan.describe_user()
 allan.greet_user()
-
-
-
