@@ -1,0 +1,42 @@
+class Restaurant:
+    """make a restaurant class"""
+    def __init__(self, restaurant_name, cuisine_type):
+        """initialize restaurant name and cuisine type"""
+        self.res_name = restaurant_name.title()
+        self.cui_type = cuisine_type
+        self.number_served = 0
+
+    def describe_restaurant(self):
+        """print the infos"""
+        print(f'The name of the restaurant is {self.res_name}')
+        print(f'The cuisine of the restaurant is {self.cui_type}')
+
+    def open_restanrant(self):
+        """tell the restaurant is open"""
+        print(f'The {self.res_name} restaurant is open!')
+
+    def set_number_served(self, num_served):
+        """set the number of the served people"""
+        self.number_served = num_served
+    
+    def increment_number_served(self, num_increment):
+        """increment the number"""
+        self.number_served += num_increment
+
+
+class IceCreamStand(Restaurant):
+    """make a class inheriting Restaurant"""
+    
+    def __init__(self, restaurant_name, cuisine_type='Ice Cream'):
+        '''initializing'''
+        super().__init__(restaurant_name, cuisine_type)
+        self.flavors = ['vanilla', 'strawberry', 'chocolate', 'buttermilk']
+
+    def disply_flavs(self):
+        """display the flavors"""
+        print(f"{self.res_name} gives you:")
+        for each in self.flavors:
+            print(f' - {each}')
+
+ice_stand1 = IceCreamStand("children happiness")
+ice_stand1.disply_flavs()

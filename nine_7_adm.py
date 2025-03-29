@@ -17,13 +17,23 @@ class User:
         print(f'\nHello {self.fir_name} {self.las_name}!')
 
 
-autumn = User('autumn', 'pai', 'male', 48, 'associate')
-hebe = User('Jiaojiao', 'quan', 'female', 35, 'MBA')
-allan = User('allan', 'tang', 'male', 28, 'bachelor')
+class Admin(User):
+    """administrator users"""
+    def __init__(self, first_name, last_name, sex, age, education):
+        super().__init__(first_name, last_name, sex, age, education)
+        self.privileges = ['add post', 'add users', 'change settings', 
+                           'reboot system', '...']
+    
+    def show_privileges(self):
+        print(
+            f'{self.fir_name} {self.las_name} has administrator privileges, '
+            f'such as:')
+        for privilege in self.privileges:
+            print(f'- {privilege}')
+
+
+autumn = Admin('autumn', 'pai', 'male', 48, 'associate')
 
 autumn.describe_user()
 autumn.greet_user()
-hebe.describe_user()
-hebe.greet_user()
-allan.describe_user()
-allan.greet_user()
+autumn.show_privileges()
