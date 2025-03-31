@@ -22,22 +22,3 @@ class Restaurant:
     def increment_number_served(self, num_increment):
         """increment the number"""
         self.number_served += num_increment
-
-
-restaurant = Restaurant('jollybee', 'American')
-
-# print the number of the served people
-print(restaurant.number_served)
-
-# change the number the served people and print
-restaurant.number_served = 699999999
-print(restaurant.number_served)
-
-# use method to change the number
-restaurant.set_number_served(24654799)
-print(restaurant.number_served)
-
-# use method to increment the number
-restaurant.increment_number_served(8098912)
-print(restaurant.number_served)
-

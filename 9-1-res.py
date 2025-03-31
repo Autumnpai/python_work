@@ -7,8 +7,8 @@ class Restaurant:
 
     def describe_restaurant(self):
         """print the infos"""
-        print(f'The name of the restaurant is {self.res_name}')
-        print(f'The cuisine of the restaurant is {self.cui_type}')
+        print(f'The name of the restaurant is {self.res_name}.')
+        print(f'The cuisine of the restaurant is {self.cui_type}.')
 
     def open_restanrant(self):
         """tell the restaurant is open"""
