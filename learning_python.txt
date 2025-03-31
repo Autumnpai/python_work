@@ -1,0 +1,4 @@
+Actually, I learned python on 2022.
+This year, 2025, I am relearning it, or review it.
+Before, i learned from Youtube and Coursa, but this time, I read a book, Python 
+Crash Course by Eric Matthes.
