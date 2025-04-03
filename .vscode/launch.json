@@ -11,7 +11,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "internalConsole",
-            "justMyCode": true
+            "justMyCode": true,
+            "cwd": "${fileDirname}"  // Set the working directory to the script's directory
         }
     ]
 }
