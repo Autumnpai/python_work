@@ -1,0 +1,1 @@
+# "cwd": "${fileDirname}"  // put this line into the .vscode/launch.json to set the working directory to the script's directory
