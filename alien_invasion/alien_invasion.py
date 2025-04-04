@@ -14,8 +14,12 @@ class AlienInvasion:
         self.clock = pygame.time.Clock()
         self.settings = Settings()
 
+        # this line is one of the key lines, it assign the self.screen variable
+        # a "Surface" object by calling the pygame.display.set_mode(), so
+        # self.screen is not a data, it is an class object which is written by C
         self.screen = pygame.display.set_mode(
             (self.settings.screen_width, self.settings.screen_height))
+        
         pygame.display.set_caption("Alien Invasion")
 
         self.ship = Ship(self)
@@ -44,4 +48,8 @@ class AlienInvasion:
 if __name__ == '__main__':
     # Make a game instance, and run the game.
     ai = AlienInvasion()
-    ai.run_game()
+    # ai.run_game()
+    # print(ai.ship.rect)
+    # print(ai.ship.rect.midbottom)
+    # print(ai.ship.screen_rect)
+    print(ai.screen)
