@@ -39,24 +39,24 @@ class Rgame():
         """Response to the keypresses"""
         if event.key == pygame.K_LEFT:
             self.rocket.moving_left = True
-        elif event.key == pygame.K_RIGHT:
+        if event.key == pygame.K_RIGHT:
             self.rocket.moving_right = True
-        elif event.key == pygame.K_UP:
+        if event.key == pygame.K_UP:
             self.rocket.moving_up = True
-        elif event.key == pygame.K_DOWN:
+        if event.key == pygame.K_DOWN:
             self.rocket.moving_down = True
-        elif event.key == pygame.K_q:
+        if event.key == pygame.K_q:
             sys.exit()
     
     def _check_keyup_events(self, event):
         """Response to the key releases."""
         if event.key == pygame.K_LEFT:
             self.rocket.moving_left = False
-        elif event.key == pygame.K_RIGHT:
+        if event.key == pygame.K_RIGHT:
             self.rocket.moving_right = False
-        elif event.key == pygame.K_UP:
+        if event.key == pygame.K_UP:
             self.rocket.moving_up = False
-        elif event.key == pygame.K_DOWN:
+        if event.key == pygame.K_DOWN:
             self.rocket.moving_down = False
     
 
@@ -94,6 +94,7 @@ class Rocket():
             self.rect.y -= self.rocket_speed
         if self.moving_down and self.rect.bottom < (self.screen.get_rect().bottom + 36):
             self.rect.y += self.rocket_speed
-        
+
+
 rgame = Rgame()
 rgame.run_game()
