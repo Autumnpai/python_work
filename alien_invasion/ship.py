@@ -7,9 +7,10 @@ class Ship:
         """Initialize the ship and set its starting position."""
         self.screen = ai_game.screen
         self.settings = ai_game.settings
-        #* assign the variable the "rect" of game surface (screen),
-        #* "rect" includes four numbers, first 2 are x,y location, last 2 are
-        #* size of the surface/screen.
+        # assign the "rect" of game surface (screen) to the ship. 
+        # "rect" is not a simple variable, but a instance of Pygame.Rect, 
+        # Pygame.Rect is a class, it includes four numbers, 
+        # first 2 are x,y locations, last 2 are sizes of the surface/screen.
         self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and get its rect.

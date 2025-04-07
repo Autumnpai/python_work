@@ -17,9 +17,9 @@ class AlienInvasion:
         # this line is one of the key lines, it assign the self.screen variable
         # a "Surface" object by calling the pygame.display.set_mode(), so
         # self.screen is not a data, it is an class object which is written by C
-        # self.screen = pygame.display.set_mode(
-        #    (self.settings.screen_width, self.settings.screen_height))
-        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        self.screen = pygame.display.set_mode(
+            (self.settings.screen_width, self.settings.screen_height))
+        # self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         # self.settings.screen_width = self.screen.get_rect().width
         # self.settings.screen_height = self.screen.get_rect().height
 
