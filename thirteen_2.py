@@ -1,4 +1,5 @@
 import sys
+from random import randint
 
 import pygame
 
@@ -10,7 +11,7 @@ class Stargame:
         pygame.init()
         self.clock = pygame.time.Clock()
         pygame.display.set_caption('Twinkle twinkle little star!')
-        self.screen = pygame.display.set_mode((1860, 1020))
+        self.screen = pygame.display.set_mode((1920, 1080))
         self.stars = pygame.sprite.Group()
         self._create_grid()
             
@@ -27,6 +28,7 @@ class Stargame:
 
     def _create_grid(self):
         """Create the grid of stars."""
+        """
         image_size = 60
         current_x, current_y = image_size, image_size
         while current_y < (1020 - image_size):
@@ -38,7 +40,14 @@ class Stargame:
                 current_x += 2 * image_size
             current_x = image_size
             current_y += 2 * image_size
-
+        """
+        image_size = 60
+        while len(self.stars) <= 120:
+            star = Star(self)
+            star.rect.x = randint(image_size, 1920 - image_size)
+            star.rect.y = randint(image_size, 1080 - image_size)
+            self.stars.add(star)
+        
 
 class Star(pygame.sprite.Sprite):
     """A class to represent a sinlge star"""
