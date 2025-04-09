@@ -27,20 +27,7 @@ class Stargame:
             self.clock.tick(60)
 
     def _create_grid(self):
-        """Create the grid of stars."""
-        """
-        image_size = 60
-        current_x, current_y = image_size, image_size
-        while current_y < (1020 - image_size):
-            while current_x < (1860 - image_size):
-                star = Star(self)
-                star.rect.x = current_x
-                star.rect.y = current_y
-                self.stars.add(star)
-                current_x += 2 * image_size
-            current_x = image_size
-            current_y += 2 * image_size
-        """
+        """Create the grid of random stars."""
         image_size = 60
         while len(self.stars) <= 120:
             star = Star(self)
