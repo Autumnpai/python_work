@@ -23,16 +23,16 @@ class Raindrops:
                     if event.key == pygame.K_q:
                         sys.exit()
             self.screen.fill((135, 206, 235))
-            self.drops.update()
             self.drops.draw(self.screen)
+            self.drops.update()
             pygame.display.flip()
             self.clock.tick(60)
     
     def _create_grid(self):
         """ Create the grid of drops. """
         spacing = 60
-        current_x, current_y = spacing + 30, spacing
-        while current_y < (800 - spacing):
+        current_x, current_y = spacing + 30, -91
+        while current_y <= 840:
             while current_x < (1200 - spacing):
                 drop = Drop(self)
                 drop.rect.x = current_x
@@ -41,7 +41,7 @@ class Raindrops:
                 current_x += 2 * spacing
             current_x = spacing + 30
             current_y += 2 * spacing
-
+    
 
 class Drop(pygame.sprite.Sprite):
     """ Represent a single drop."""
@@ -57,7 +57,10 @@ class Drop(pygame.sprite.Sprite):
     
     def update(self):
         """ Drops falling down """
-        self.rect.y += 1
+        if self.rect.y >= 869:  # check if a drop is READY to go to the top.
+            self.rect.y = -91   # change it to the top.
+        else:
+            self.rect.y += 1
 
 
 rd = Raindrops()
