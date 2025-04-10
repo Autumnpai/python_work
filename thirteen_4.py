@@ -31,8 +31,8 @@ class Raindrops:
     def _create_grid(self):
         """ Create the grid of drops. """
         spacing = 60
-        current_x, current_y = spacing + 30, -91
-        while current_y <= 840:
+        current_x, current_y = spacing + 30, -1411
+        while current_y < (800 - 12 * spacing):
             while current_x < (1200 - spacing):
                 drop = Drop(self)
                 drop.rect.x = current_x
