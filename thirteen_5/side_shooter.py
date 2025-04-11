@@ -68,14 +68,17 @@ class Horizongame:
 
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        if len(self.bullets) < self.settings.bullet_allowed:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
 
     def _update_bullets(self):
         """Update position of the bullets and get rid of old bullets."""
+        # Update bullet's positions.
         self.bullets.update()
+        # Get rid of the bullets that have disappeared.
         for bullet in self.bullets.copy():
-            if bullet.rect.right <= 0:
+            if bullet.rect.left >= self.settings.screen_width:
                 self.bullets.remove(bullet)
         self._check_bullet_alien_collisions()
 
