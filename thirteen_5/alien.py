@@ -15,15 +15,19 @@ class Alien(Sprite):
         self.rect = self.image.get_rect()
 
         # Start each new alien near the top left of the screen.
-        self.rect.x = 0 # 3 * self.rect.width
-        self.rect.y = 0 # self.rect.height
+        self.rect.x = 3 * self.rect.width
+        self.rect.y = self.rect.height
 
-        # Store the alien's exact horizontal position.
-        # self.y = float(self.rect.y)
+        # Store the alien's exact vertical position by float.
+        # The defining of this variable is just for changing the speed by small
+        # quantity. Without this variable, the speed only could be adjusted by
+        # integer. Rect class only accept intergers.
+        self.y = float(self.rect.y)
 
     def update(self):
         """Move the alien to the top or bottom."""
-        self.rect.y += self.settings.alien_speed * self.settings.fleet_direction
+        self.y += self.settings.alien_speed * self.settings.fleet_direction
+        self.rect.y = self.y
     
     def check_edges(self):
         """Return True if alien is at edge of screen."""
