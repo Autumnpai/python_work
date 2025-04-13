@@ -152,7 +152,7 @@ class AlienInvasion:
     def _create_alien(self, x_position, y_posistion):
         """Create an alien and put it in the row."""
         new_alien = Alien(self)
-        new_alien.x = x_position
+        new_alien.x = x_position # This variable is needed when running alien.update()
         new_alien.rect.x = x_position
         new_alien.rect.y = y_posistion
         self.aliens.add(new_alien)

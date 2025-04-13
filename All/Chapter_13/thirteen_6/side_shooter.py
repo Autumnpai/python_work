@@ -1,4 +1,5 @@
 import sys
+from time import sleep
 
 import pygame
 
@@ -6,6 +7,7 @@ from settings import Settings
 from plane import Plane
 from bullet import Bullet
 from alien import Alien
+from game_stats import Gamestats
 
 class Horizongame:
     """Overall class to manage game assets and behaviors"""
@@ -24,14 +26,19 @@ class Horizongame:
         self.aliens = pygame.sprite.Group()
 
         self._create_fleet()
+
+        self.stats = Gamestats(self)
+
+        self.game_active = True
     
     def run_game(self):
         """Start the main loop for the game."""
         while True:
             self._events_check()
-            self.plane.update()
-            self._update_bullets()
-            self._update_aliens()
+            if self.game_active:
+                self.plane.update()
+                self._update_bullets()
+                self._update_aliens()
             self._update_screen()
             self.clock.tick(60) # this changes the speed of the game, 
                                 # not only the screen refresh rate. 
@@ -97,7 +104,10 @@ class Horizongame:
         aliens in the fleet"""
         self._check_fleet_edges()
         self.aliens.update()
-        # if pygame.sprite.spritecollideany(self.ship, self.aliens)
+        if pygame.sprite.spritecollideany(self.plane, self.aliens):
+            self._plane_hit()
+        
+        self._check_aliens_leftedge()
 
     def _create_fleet(self):
         """Create the fleet of aliens."""
@@ -136,6 +146,24 @@ class Horizongame:
         for alien in self.aliens.sprites():
             alien.rect.x -= self.settings.fleet_forward_speed
         self.settings.fleet_direction *= -1
+
+    def _plane_hit(self):
+        """Respond to the ship being hit by an alien."""
+        if self.stats.plane_left > 0:
+            self.stats.plane_left -= 1
+            self.aliens.empty()
+            self.bullets.empty()
+            self._create_fleet()
+            self.plane.center_plane()
+            sleep(0.5)
+        else:
+            self.game_active = False
+
+    def _check_aliens_leftedge(self):
+        for alien in self.aliens.sprites():
+            if alien.rect.x <= 0:
+                self._plane_hit()
+                break
 
 
 hg = Horizongame()
