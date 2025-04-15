@@ -11,7 +11,7 @@ class Ship:
         # "rect" is not a simple variable, but a instance of Pygame.Rect, 
         # Pygame.Rect is a class, it includes four numbers, 
         # first 2 are x,y locations, last 2 are sizes of the surface/screen.
-        self.screen_rect = self.screen.get_rect()
+        self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and get its rect.
         self.image = pygame.image.load('images/fighter.png')
