@@ -1,3 +1,3 @@
-a, b = [5, 10]
+a, b = 5, 10
 print(a)
 print(b)

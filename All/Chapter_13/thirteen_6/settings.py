@@ -16,11 +16,11 @@ class Settings:
         self.bullet_allowed = 4
 
         # Alien settings
-        self.alien_speed = 1.5
+        self.alien_speed = 1.0
         self.fleet_forward_speed = 20
         # fleet_direction of 1 represents down; -1 represents up.
         self.fleet_direction = -1
 
         # Plane settings
-        self.plane_speed = 1.5
+        self.plane_speed = 2
         self.plane_limit = 3

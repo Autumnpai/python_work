@@ -116,14 +116,14 @@ class Horizongame:
         alien = Alien(self)
         alien_width, alien_height = alien.rect.size
 
-        current_x, current_y = alien_width * 4, alien_height
+        current_x, current_y = alien_width * 5, alien_height
         while current_y < (self.settings.screen_height - 2 * alien_height):
-            while current_x < (self.settings.screen_width - alien_width):
+            while current_x < self.settings.screen_width:
                 self._create_alien(current_x, current_y)
                 current_x += 2 * alien_width
             
             # Finish a row; reset x value, and increment y value.
-            current_x = alien_width * 4
+            current_x = alien_width * 5
             current_y += 2 * alien_height
 
     def _create_alien(self, x_position, y_position):
