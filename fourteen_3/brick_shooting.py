@@ -40,7 +40,7 @@ class Brickshootgame:
                     if bullet.rect.right >= self.screen.get_rect().right:
                         self._missing(bullet)
                     pygame.draw.rect(bullet.screen, bullet.color, bullet.rect)
-                self.brick.brickmoving()
+            self.brick.brickmoving()
             self.shooter.blitme()
             pygame.draw.rect(
                 self.brick.screen, self.brick.color, self.brick.rect)
@@ -63,6 +63,7 @@ class Brickshootgame:
         if len(self.bullets) < 3:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
+            self.brick.moving_speed *= self.brick.speed_increase_scale
 
     def _check_key_press(self):
         """Check key and mouse events."""
@@ -96,6 +97,7 @@ class Brickshootgame:
             self.bullets.empty()
             self.missing_limit = 2
             self.shooter.rect.midleft = self.shooter.screen_rect.midleft
+            self.brick.moving_speed = 1
 
 
 bs = Brickshootgame()
